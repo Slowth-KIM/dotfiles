@@ -1,0 +1,9 @@
+README.md
+CLAUDE.md
+Brewfile
+\.pre-commit-config\.yaml
+\.secrets\.baseline
+\.gitignore
+\.env\.example
+\.gitconfig\.user\.example
+\.ssh-config\.example

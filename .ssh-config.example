@@ -1,0 +1,20 @@
+# SSH Configuration Template
+# Add contents to ~/.ssh/config and replace with your actual information.
+
+# GitHub
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+
+# Example server
+Host my-server
+    HostName your.server.ip.here
+    User your-username
+    IdentityFile ~/path/to/your/key.pem
+
+# General settings
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentitiesOnly yes

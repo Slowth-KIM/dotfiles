@@ -1,0 +1,8 @@
+# Git 사용자 설정 템플릿
+# 이 파일을 .gitconfig.user로 복사하고 실제 정보로 교체하세요.
+#
+# cp .gitconfig.user.example .gitconfig.user
+
+[user]
+	name = "Your Name Here"
+	email = your.email@example.com

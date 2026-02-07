@@ -1,0 +1,86 @@
+# ======================
+# 개인 설정 파일들 (민감한 정보)
+# ======================
+.gitconfig.user
+.env.*
+!.env.example
+*.local
+
+# ======================
+# Secrets baseline
+# ======================
+.secrets.baseline
+
+# ======================
+# macOS 시스템 파일
+# ======================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# ======================
+# Claude 관련
+# ======================
+.claude/backups
+.claude/ide
+.claude/logs
+.claude/plugins
+.claude/shell-snapshots
+.claude/statsig
+.claude/stats-cache.json
+.claude/bash-command-log.txt
+.claude/transcripts/
+.claude/cache
+.claude/paste-cache
+.claude/telemetry
+.claude/removed-mcp-servers.json
+.claude/file-history
+.claude/history.jsonl
+.claude/debug
+.claude/downloads
+.claude/todos
+.claude/projects
+.claude/tasks
+.claude/claude_desktop_config.json
+
+# ======================
+# Karabiner 자동 백업
+# ======================
+.config/karabiner/automatic_backups
+
+# ======================
+# Neovim
+# ======================
+.config/nvim/.gitignore
+.config/nvim/.neoconf.json
+.config/nvim/lazy-lock.json
+
+# ======================
+# 편집기 관련
+# ======================
+*.swp
+*.swo
+*~
+.vscode/
+
+# ======================
+# 로그 및 임시 파일
+# ======================
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# ======================
+# Node.js
+# ======================
+node_modules/
+
+# ======================
+# Python
+# ======================
+**/__pycache__

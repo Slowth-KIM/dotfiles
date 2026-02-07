@@ -1,0 +1,47 @@
+repos:
+  # Detect Secrets
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: .*\.lock$|package-lock\.json$|lazy-lock\.json$|\.pre-commit-config\.yaml$
+
+  # Pre-commit hooks for common issues
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+      - id: check-case-conflict
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-json
+        exclude: \.vscode/.*\.json$
+      - id: check-toml
+
+  # Local hooks for dotfiles-specific checks
+  - repo: local
+    hooks:
+      # Check for hardcoded personal paths
+      - id: check-hardcoded-paths
+        name: Check for hardcoded personal paths
+        entry: bash -c 'if git diff --cached --name-only | xargs grep -l "/Users/pwd_command" 2>/dev/null | grep -v ".pre-commit-config.yaml"; then echo "ERROR: Found hardcoded personal paths"; exit 1; fi'
+        language: system
+        pass_filenames: false
+
+      # Check for sensitive file extensions
+      - id: check-sensitive-extensions
+        name: Check for sensitive file extensions
+        entry: bash -c 'if git diff --cached --name-only | grep -E "\.(pem|key|p12|pfx|jks|keystore)$"; then echo "ERROR: Sensitive file detected"; exit 1; fi'
+        language: system
+        pass_filenames: false
+
+      # Check for API keys in env files (non-example)
+      - id: check-env-files
+        name: Check for actual env files
+        entry: bash -c 'if git diff --cached --name-only | grep -E "^\.env\." | grep -v "\.example$"; then echo "ERROR: Actual env file detected"; exit 1; fi'
+        language: system
+        pass_filenames: false

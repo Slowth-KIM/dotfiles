@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(git log:*)",
+      "Bash(git check-ignore:*)",
+      "WebSearch",
+      "WebFetch"
+    ]
+  }
+}

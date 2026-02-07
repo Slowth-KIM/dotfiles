@@ -1,0 +1,37 @@
+font-family = JetBrainsMono Nerd Font
+font-family = Sarasa Term K
+font-size = 16
+theme = catppuccin-mocha
+
+shell-integration-features = no-cursor, sudo, no-title
+cursor-style = block
+
+# Font and cell adjustments for Korean text
+adjust-cell-height = 15%
+adjust-cell-width = 0%
+adjust-font-baseline = -2%
+grapheme-width-method = unicode
+
+# Font variations for better Korean rendering
+font-synthetic-style = bold,italic,bold-italic
+
+# Mouse
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+# Window
+window-padding-balance = true
+window-save-state = always
+window-colorspace = "display-p3"
+window-decoration = false
+macos-titlebar-style = hidden
+
+background-opacity = 1
+
+# Keybindings
+keybind = cmd+s>r=reload_config
+keybind = cmd+s>x=close_surface
+keybind = cmd+s>n=new_window
+keybind = cmd+s>c=new_tab
+keybind = cmd+s>shift+l=next_tab
+keybind = super+d=unbind

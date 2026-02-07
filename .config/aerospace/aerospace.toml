@@ -1,0 +1,185 @@
+# AeroSpace tiling window manager configuration
+# https://nikitabobko.github.io/AeroSpace/
+
+after-login-command = []
+after-startup-command = []
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 100
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+key-mapping.preset = 'qwerty'
+
+# Mouse follows focus
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = "move-mouse window-lazy-center"
+
+# Gaps
+[gaps]
+inner.horizontal = 20
+inner.vertical = 20
+outer.left = 20
+outer.bottom = 10
+outer.top = 10
+outer.right = 20
+
+# Main binding mode
+[mode.main.binding]
+
+# Layout
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+
+# Focus (vim motions)
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move windows
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Workspaces
+alt-q = 'workspace q'
+alt-w = 'workspace w'
+alt-e = 'workspace e'
+alt-t = 'workspace t'
+alt-y = 'workspace y'
+alt-u = 'workspace u'
+alt-i = 'workspace i'
+alt-o = 'workspace o'
+alt-p = 'workspace p'
+alt-d = 'workspace d'
+alt-g = 'workspace g'
+alt-z = 'workspace z'
+alt-x = 'workspace x'
+alt-c = 'workspace c'
+alt-v = 'workspace v'
+alt-b = 'workspace b'
+alt-n = 'workspace n'
+alt-m = 'workspace m'
+
+# Move to workspace
+alt-shift-q = 'move-node-to-workspace q'
+alt-shift-w = 'move-node-to-workspace w'
+alt-shift-e = 'move-node-to-workspace e'
+alt-shift-t = 'move-node-to-workspace t'
+alt-shift-y = 'move-node-to-workspace y'
+alt-shift-u = 'move-node-to-workspace u'
+alt-shift-i = 'move-node-to-workspace i'
+alt-shift-o = 'move-node-to-workspace o'
+alt-shift-p = 'move-node-to-workspace p'
+alt-shift-d = 'move-node-to-workspace d'
+alt-shift-g = 'move-node-to-workspace g'
+alt-shift-z = 'move-node-to-workspace z'
+alt-shift-x = 'move-node-to-workspace x'
+alt-shift-c = 'move-node-to-workspace c'
+alt-shift-v = 'move-node-to-workspace v'
+alt-shift-b = 'move-node-to-workspace b'
+alt-shift-n = 'move-node-to-workspace n'
+alt-shift-m = 'move-node-to-workspace m'
+
+# Fullscreen
+alt-shift-f = 'fullscreen'
+
+# Workspace switching
+alt-tab = 'workspace-back-and-forth'
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+# Mode switching
+alt-shift-semicolon = 'mode service'
+alt-shift-r = 'mode resize'
+
+# Resize mode
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+b = 'balance-sizes'
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
+enter = 'mode main'
+esc = 'mode main'
+
+# Service mode
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
+
+# Floating apps
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Passwords'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.kakao.KakaoTalkMac'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = 'layout floating'
+
+# Workspace assignments
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = "move-node-to-workspace q"
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = "move-node-to-workspace w"
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = "move-node-to-workspace w"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = "move-node-to-workspace t"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = "move-node-to-workspace t"
+
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.intellij'
+run = "move-node-to-workspace i"
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = "move-node-to-workspace o"
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = "move-node-to-workspace z"
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = "move-node-to-workspace y"

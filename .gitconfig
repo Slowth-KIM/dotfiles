@@ -1,0 +1,131 @@
+[color]
+	ui = true
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	func = 146 bold
+	commit = yellow bold
+	whitespace = red reverse
+[alias]
+  chunkyadd = add --patch
+  contributors = shortlog --summary --numbered --email
+  recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+
+  # branch
+  b = branch -v
+
+  # commit
+  c = commit -m
+  ca = commit -am
+  ci = commit
+  amend = commit --amend
+  ammend = commit --amend
+
+  # checkout
+  co = checkout
+  nb = checkout -b
+
+  # cherry-pick
+  cp = cherry-pick -x
+
+  # diff
+  d = diff
+  dc = diff --cached
+  last = diff HEAD^
+
+  # log
+  l = log --graph --date=short
+  changes = log --pretty=format:"%h %cr %cn %Cgreen%s%Creset" --name-status
+  short = log --pretty=format:"%h %cr %cn %Cgreen%s%Creset"
+  simple = log --pretty=format:" * %s"
+  shortnocolor = log --pretty=format:"%h %cr %cn %s"
+
+  # pull
+  pl = pull
+
+  # push
+  ps = push
+
+  # rebase
+  rc = rebase --continue
+  rs = rebase --skip
+
+  # remote
+  r = remote -v
+
+  # reset
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+  filelog = log -u
+  mt = mergetool
+
+  # stash
+  ss = stash
+  sl = stash list
+  sa = stash apply
+  sd = stash drop
+
+  # status
+  s = status
+  st = status
+  stat = status
+
+  # tag
+  t = tag -n
+
+[format]
+  pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+[mergetool]
+  prompt = false
+[merge]
+  summary = true
+  verbosity = 1
+  conflictstyle = diff3
+[apply]
+  whitespace = nowarn
+[branch]
+  autosetupmerge = true
+[push]
+  default = upstream
+[core]
+	autocrlf = input
+  editor = nvim
+  excludesfile = ~/.gitignore
+	pager = delta
+[advice]
+  statusHints = false
+[diff]
+  mnemonicprefix = true
+	algorithm = patience
+	colorMoved = default
+[rerere]
+  enabled = true
+[include]
+    path = ~/.gitconfig.user
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[delta]
+	navigate = true
+	side-by-side = true
+	syntax-theme = Catppuccin Mocha
+	dark = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
